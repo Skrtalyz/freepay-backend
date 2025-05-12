@@ -21,13 +21,13 @@ app.post('/gerar-pix', async (req, res) => {
         "Authorization": `Bearer ${FREEPAY_SECRET_KEY}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        valor,
-        nome,
-        documento,
-        email,
-        telefone
-      })
+     body: JSON.stringify({
+  valor: valor / 100, // converte de centavos para reais
+  nome,
+  documento,
+  email,
+  telefone
+})
     });
 
     const dados = await resposta.json();
