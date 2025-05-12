@@ -15,7 +15,7 @@ app.post('/gerar-pix', async (req, res) => {
   const { nome, documento, email, telefone, valor } = req.body;
 
   try {
-    const resposta = await fetch("https://api.freepay.com.br/pix/create", {
+    const resposta = await fetch("https://painel.sistema.freepaybr.com/api/pix/create", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${FREEPAY_SECRET_KEY}`,
