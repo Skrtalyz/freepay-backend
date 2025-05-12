@@ -32,9 +32,10 @@ app.post('/gerar-pix', async (req, res) => {
 
     const dados = await resposta.json();
 
-    if (!resposta.ok) {
-      return res.status(resposta.status).json({ erro: dados });
-    }
+   if (!resposta.ok) {
+  console.error("Resposta da FreePay:", dados);
+  return res.status(resposta.status).json({ erro: dados });
+}
 
     return res.json(dados);
 
